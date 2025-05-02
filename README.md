@@ -37,7 +37,7 @@ This method automatically handles all dependencies and startup processes:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/k8s-traffic-visualizer.git
+git clone https://github.com/greyhoundforty/k8s-traffic-visualizer.git
 
 # Navigate to the project directory
 cd k8s-traffic-visualizer
