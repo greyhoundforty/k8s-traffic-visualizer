@@ -1,0 +1,28 @@
+{
+    "name": "k8s-traffic-visualizer",
+    "version": "1.0.0",
+    "description": "Interactive visualization of Kubernetes traffic flow",
+    "main": "src/js/main.js",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview"
+    },
+    "keywords": [
+        "kubernetes",
+        "visualization",
+        "traffic",
+        "d3",
+        "WebGL"
+    ],
+    "author": "",
+    "license": "MIT",
+    "devDependencies": {
+        "vite": "^4.5.14"
+    },
+    "dependencies": {
+        "d3": "^7.8.5",
+        "socket.io-client": "^4.6.1",
+        "terser": "^5.39.0"
+    }
+}
