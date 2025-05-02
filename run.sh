@@ -5,8 +5,8 @@ set -euo pipefail
 
 # Configuration
 PYTHON_CMD="python3"
-VENV_DIR=".venv"
 BACKEND_DIR="backend"
+VENV_DIR="${BACKEND_DIR}/.venv"
 FRONTEND_DIR="frontend"
 DEMO_MANIFEST="deploy/demo-app.yaml"
 PORT=5000

@@ -27,48 +27,95 @@ Before you begin, ensure you have the following installed:
   - Node.js 18 or higher
   - npm (Node package manager)
 
-## Installation
+## Installation and Running
 
-### Clone the Repository
+There are two ways to set up and run the application:
+
+### Option 1: Quick Start (Using run.sh)
+
+This method automatically handles all dependencies and startup processes:
 
 ```bash
+# Clone the repository
 git clone https://github.com/yourusername/k8s-traffic-visualizer.git
+
+# Navigate to the project directory
 cd k8s-traffic-visualizer
+
+# Run the setup and start script
+./run.sh
 ```
+
+The application will be available at `http://localhost:5050`
+
+### Option 2: Manual Setup
+
+Follow these steps if you need more control over the setup process or if the run.sh script does not work for you:
 
 #### Backend Setup
 
-1. Create and activate a virtual environment:
-
-```bash 
-cd backend
-python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-```
-
-
-2. Install required python packages
-
 ```shell
+# Clone the repository
+git clone https://github.com/yourusername/k8s-traffic-visualizer.git
+
+# Navigate to the project directory
+cd k8s-traffic-visualizer
+
+# Create and activate a virtual environment
+cd backend
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install the required Python packages
 pip install -r requirements.txt
 ```
 
 #### Frontend Setup
 
-1. Install node dependencies
+Before we start the python server, we need to build the frontend files:
 
-
-```shell
+```bash
+# Navigate to the frontend directory
 cd ../frontend
-npm install 
+
+# Install frontend dependencies
+npm install
+
+# Build the frontend
+npm run build
 ```
 
-### Development Mode
+#### Start the Backend Server
 
-1. Running the Backend
+```bash
+# Navigate to the backend directory 
+cd ../backend
+# Start the backend server
+python app.py
+```
+
+### Troubleshooting
+
+Adding these here as I hit all of them while creating and setting up the project.
+
+**WebSocket Connection Issues**
+
+If you see "Disconnected" in the UI, ensure the backend is running with host set to 0.0.0.0:
+
+```python
+pythonsocketio.run(app, host='0.0.0.0', port=port, debug=True)
+```
+
+**Check for any firewall or proxy settings that might block WebSocket connections**
+
+Visit `http://localhost:5050/websocket-test` to test WebSocket connectivity directly.
+
+**Frontend File Loading Issues**
+
+If you encounter 404 errors for frontend files, make sure you've built the frontend:
 
 ```shell
-python backend/app.py
+cd frontend
+npm run build
 ```
 
-The backend server will start on `http://localhost:5050` by default.
